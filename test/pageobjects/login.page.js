@@ -1,4 +1,4 @@
-const Page = require('./page');
+const Page = require ('./page');
 
 class loginPage extends Page {
     get username () { return $('#user-name') }
@@ -6,8 +6,8 @@ class loginPage extends Page {
     get loginBtn () { return $('#login-button') }
     get loginError() { return $('h3') }
     get errorBtn() { return $('.error-button') }
-    get menuBtn() { return $('#react-burger-menu-btn') }
-    get logoutBtn() { return $('#logout_sidebar_link') }
+    /*get menuBtn() { return $('#react-burger-menu-btn') }
+    get logoutBtn() { return $('#logout_sidebar_link') }*/
 
     open () {
         return super.open();
@@ -15,14 +15,11 @@ class loginPage extends Page {
     submit () {
         this.loginBtn.click();
     }
-    menu () {
+    /*menu () {
         this.menuBtn.click();
     }
     logout () {
         this.logoutBtn.click();
-    }
-    /*autocompleteOff () {
-        this.attr('autocomplete', 'off');
     }*/
 }
 
