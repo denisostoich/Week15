@@ -4,7 +4,7 @@
   "description": "Final Integrative Problematic",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio run ./wdio.conf.js --spec productTest"
+    "test": "npx wdio run ./wdio.conf.js --spec cartTest"
   },
   "repository": {
     "type": "git",

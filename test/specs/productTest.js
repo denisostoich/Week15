@@ -1,10 +1,10 @@
-const cartPage = require ('../pageobjects/cart.page');
 const loginPage = require ('../pageobjects/login.page');
 const productPage = require ('../pageobjects/product.page');
+const cartPage = require ('../pageobjects/cart.page');
 
 //All the tests involved in this file are performed on the correct username and password of standard_user.
 
-describe('Login Tests', () => {
+describe('Product Tests', () => {
     beforeAll('Open browser', () => {
         loginPage.open();
         browser.pause(2000);
@@ -27,8 +27,8 @@ describe('Login Tests', () => {
             productPage.cartBtn.waitForClickable();
             productPage.cart();
             expect(browser).toHaveUrl('https://www.saucedemo.com/cart.html');
-            cartPage.continueShopping.waitForClickable();
-            cartPage.continueShopping.click();
+            cartPage.continueShoppingBtn.waitForClickable();
+            cartPage.continueShoppingBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             productPage.backpackRemoveCartBtn.waitForClickable();
             productPage.backpackRemoveCartBtn.click();
