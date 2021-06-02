@@ -17,6 +17,7 @@ describe('Product Tests', () => {
             loginPage.loginBtn.waitForClickable();
             loginPage.submit();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
+            expect(productPage.pageProductTittle).toHaveText('PRODUCTS');
     });
 
     describe('Add and remove products from the cart', () => {
@@ -41,8 +42,8 @@ describe('Product Tests', () => {
             productPage.cartBtn.waitForClickable();
             productPage.cart();
             expect(browser).toHaveUrl('https://www.saucedemo.com/cart.html');
-            cartPage.continueShopping.waitForClickable();
-            cartPage.continueShopping.click();
+            cartPage.continueShoppingBtn.waitForClickable();
+            cartPage.continueShoppingBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             productPage.bikeLightRemoveCartBtn.waitForClickable();
             productPage.bikeLightRemoveCartBtn.click();
@@ -55,8 +56,8 @@ describe('Product Tests', () => {
             productPage.cartBtn.waitForClickable();
             productPage.cart();
             expect(browser).toHaveUrl('https://www.saucedemo.com/cart.html');
-            cartPage.continueShopping.waitForClickable();
-            cartPage.continueShopping.click();
+            cartPage.continueShoppingBtn.waitForClickable();
+            cartPage.continueShoppingBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             productPage.boltTshirtRemoveCartBtn.waitForClickable();
             productPage.boltTshirtRemoveCartBtn.click();
@@ -69,8 +70,8 @@ describe('Product Tests', () => {
             productPage.cartBtn.waitForClickable();
             productPage.cart();
             expect(browser).toHaveUrl('https://www.saucedemo.com/cart.html');
-            cartPage.continueShopping.waitForClickable();
-            cartPage.continueShopping.click();
+            cartPage.continueShoppingBtn.waitForClickable();
+            cartPage.continueShoppingBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             productPage.fleeceJacketRemoveCartBtn.waitForClickable();
             productPage.fleeceJacketRemoveCartBtn.click();
@@ -83,8 +84,8 @@ describe('Product Tests', () => {
             productPage.cartBtn.waitForClickable();
             productPage.cart();
             expect(browser).toHaveUrl('https://www.saucedemo.com/cart.html');
-            cartPage.continueShopping.waitForClickable();
-            cartPage.continueShopping.click();
+            cartPage.continueShoppingBtn.waitForClickable();
+            cartPage.continueShoppingBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             productPage.onesieRemoveCartBtn.waitForClickable();
             productPage.onesieRemoveCartBtn.click();
@@ -97,8 +98,8 @@ describe('Product Tests', () => {
             productPage.cartBtn.waitForClickable();
             productPage.cart();
             expect(browser).toHaveUrl('https://www.saucedemo.com/cart.html');
-            cartPage.continueShopping.waitForClickable();
-            cartPage.continueShopping.click();
+            cartPage.continueShoppingBtn.waitForClickable();
+            cartPage.continueShoppingBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             productPage.redTshirtRemoveCartBtn.waitForClickable();
             productPage.redTshirtRemoveCartBtn.click();

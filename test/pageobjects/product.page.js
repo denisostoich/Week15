@@ -61,6 +61,7 @@ class productPage extends Page {
     // Go to cart link button
     get cartBtn () { return $('.shopping_cart_link') }
     get loadedCart () { return $('.shopping_cart_badge') }
+    get pageProductTittle () { return $('.title') }
 
     //Social Media Buttons.
     get twitterLink () { return $('.social_twitter') }
