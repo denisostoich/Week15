@@ -30,6 +30,7 @@ class productPage extends Page {
     get fleeceJacketTextLink() { return $('.inventory_item_name=Sauce Labs Fleece Jacket') }
     get onesieTextLink() { return $('.inventory_item_name=Sauce Labs Onesie') }
     get redTshirtTextLink() { return $('.inventory_item_name=Test.allTheThings() T-Shirt (Red)') }
+    get productPrice() { return $$('.inventory_item_price') }
 
     //Products Image Links.
     get backpackImageLink() { return $('#item_4_img_link') }
@@ -47,10 +48,6 @@ class productPage extends Page {
     //Products Sort
     get productSortBtn () { return $('.product_sort_container') }
     get sortNameAToZ () { return $('option[value="az"]') }
-    //get sortNameAToZ () { return $('.product_sort_container=Name (A to Z)') }
-    //get sortNameZToA () { return $('.product_sort_container=Name (Z to A)') }
-    //get sortPriceLowToHigh () { return $('.product_sort_container=Price (low to high)') }
-    //get sortPriceHighToLow () { return $('.product_sort_container=Price (high to low)') }
     get firstPositionProduct () { return $$('.inventory_item_name')[0] }
     get secondPositionProduct () { return $$('.inventory_item_name')[1] }
     get thirdPositionProduct () { return $$('.inventory_item_name')[2] }

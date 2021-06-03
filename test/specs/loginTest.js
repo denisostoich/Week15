@@ -90,18 +90,6 @@ describe('Login Tests', () => {
         });
     });
 
-    /*describe('timeout', () => {
-        it('Timeout', () => {
-            loginPage.username.waitForEnabled();
-            loginPage.username.setValue('performance_glitch_user');
-            loginPage.password.waitForEnabled();
-            loginPage.password.setValue('secret_sauce');
-            loginPage.loginBtn.waitForClickable();
-            loginPage.submit();
-            expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
-        });
-    });*/
-
     describe('Login with valid info and logout in standard_user', () => {
         it('Should let login with valid information', () => {
             browser.refresh();

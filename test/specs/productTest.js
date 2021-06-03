@@ -1,6 +1,13 @@
 const loginPage = require ('../pageobjects/login.page');
 const productPage = require ('../pageobjects/product.page');
 const cartPage = require ('../pageobjects/cart.page');
+const RegExp = /[-]{0,1}[\d]*[.]{0,1}[\d]+/g;
+
+var priceFunction = (selectProduct) => {
+    var textPrice = selectProduct.getText();
+    var numberSubtotal = parseFloat(textPrice.match(RegExp));
+    return numberSubtotal;
+}
 
 //All the tests involved in this file are performed on the correct username and password of standard_user.
 
@@ -18,6 +25,12 @@ describe('Product Tests', () => {
             loginPage.submit();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             expect(productPage.pageProductTittle).toHaveText('PRODUCTS');
+            expect(priceFunction(productPage.productPrice[0])).toEqual(29.99);
+            expect(priceFunction(productPage.productPrice[1])).toEqual(9.99);
+            expect(priceFunction(productPage.productPrice[2])).toEqual(15.99);
+            expect(priceFunction(productPage.productPrice[3])).toEqual(49.99);
+            expect(priceFunction(productPage.productPrice[4])).toEqual(7.99);
+            expect(priceFunction(productPage.productPrice[5])).toEqual(15.99);
     });
 
     describe('Add and remove products from the cart', () => {
@@ -114,7 +127,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=4');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/sauce-backpack-1200x1500.34e7aa42.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Backpack');
-            //'.inventory_details_price[0]=29.99'
             productPage.backpackAddCartBtn.waitForClickable();
             productPage.backpackAddCartBtn.click();
             expect(productPage.loadedCart).toHaveText('1');
@@ -131,7 +143,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=0');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/bike-light-1200x1500.a0c9caae.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Bike Light');
-            //'.inventory_details_price[0]=29.99'
             productPage.bikeLightAddCartBtn.waitForClickable();
             productPage.bikeLightAddCartBtn.click();
             expect(productPage.loadedCart).toHaveText('1');
@@ -148,7 +159,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=1');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/bolt-shirt-1200x1500.c0dae290.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Bolt T-Shirt');
-            //'.inventory_details_price[0]=29.99'
             productPage.boltTshirtAddCartBtn.waitForClickable();
             productPage.boltTshirtAddCartBtn.click();
             expect(productPage.loadedCart).toHaveText('1');
@@ -165,7 +175,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=5');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/sauce-pullover-1200x1500.439fc934.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Fleece Jacket');
-            //'.inventory_details_price[0]=29.99'
             productPage.fleeceJacketAddCartBtn.waitForClickable();
             productPage.fleeceJacketAddCartBtn.click();
             expect(productPage.loadedCart).toHaveText('1');
@@ -182,7 +191,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=2');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/red-onesie-1200x1500.1b15e1fa.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Onesie');
-            //'.inventory_details_price[0]=29.99'
             productPage.onesieAddCartBtn.waitForClickable();
             productPage.onesieAddCartBtn.click();
             expect(productPage.loadedCart).toHaveText('1');
@@ -199,7 +207,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=3');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/red-tatt-1200x1500.e32b4ef9.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Test.allTheThings() T-Shirt (Red)');
-            //'.inventory_details_price[0]=29.99'
             productPage.redTshirtAddCartBtn.waitForClickable();
             productPage.redTshirtAddCartBtn.click();
             expect(productPage.loadedCart).toHaveText('1');
@@ -219,7 +226,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=4');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/sauce-backpack-1200x1500.34e7aa42.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Backpack');
-            //'.inventory_details_price[0]=29.99'
             productPage.backProductsBtn.waitForClickable();
             productPage.backProductsBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
@@ -230,7 +236,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=0');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/bike-light-1200x1500.a0c9caae.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Bike Light');
-            //'.inventory_details_price[0]=29.99'
             productPage.backProductsBtn.waitForClickable();
             productPage.backProductsBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
@@ -241,7 +246,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=1');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/bolt-shirt-1200x1500.c0dae290.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Bolt T-Shirt');
-            //'.inventory_details_price[0]=29.99'
             productPage.backProductsBtn.waitForClickable();
             productPage.backProductsBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
@@ -252,7 +256,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=5');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/sauce-pullover-1200x1500.439fc934.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Fleece Jacket');
-            //'.inventory_details_price[0]=29.99'
             productPage.backProductsBtn.waitForClickable();
             productPage.backProductsBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
@@ -263,7 +266,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=2');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/red-onesie-1200x1500.1b15e1fa.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Sauce Labs Onesie');
-            //'.inventory_details_price[0]=29.99'
             productPage.backProductsBtn.waitForClickable();
             productPage.backProductsBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
@@ -274,7 +276,6 @@ describe('Product Tests', () => {
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory-item.html?id=3');
             expect(productPage.productImgDetail).toHaveAttr('src', 'https://www.saucedemo.com/static/media/red-tatt-1200x1500.e32b4ef9.jpg');
             expect(productPage.productTextDetail).toHaveTextContaining('Test.allTheThings() T-Shirt (Red)');
-            //'.inventory_details_price[0]=29.99'
             productPage.backProductsBtn.waitForClickable();
             productPage.backProductsBtn.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
